@@ -1,0 +1,95 @@
+* Launchpad 🚀
+
+A customizable personal dashboard built with ClojureScript and UIx.
+
+** Overview 🌟
+
+Launchpad is a flexible dashboard that allows you to organize and
+access your frequently used links in a structured table format. It
+supports tag-based filtering and templating for dynamic link
+generation.
+
+** Features ✨
+
+- Tag-based filtering system
+- Configurable table layout
+- URL templating support
+- YAML configuration
+- Sidebar sections for additional links
+- Modern React-based UI using [[https://github.com/pitch-io/uix][UIx]]
+
+*** Prerequisites
+
+- Node.js
+- ClojureScript development environment
+- Shadow-cljs
+
+*** Dependencies
+
+- UIx (React wrapper), https://github.com/pitch-io/uix
+- js-yaml, https://github.com/nodeca/js-yaml
+- shadow-cljs, https://github.com/thheller/shadow-cljs
+- cljs-http, https://github.com/r0man/cljs-http
+
+** Configuration 📝
+
+The dashboard is configured through a =config.yml= file that should contain:
+
+- =columns=: Column definitions with tags
+- =rows=: Row definitions with tags
+- =templates=: URL templates for generating links
+- =items=: List of items to display
+- =aside=: Sidebar sections with additional links
+
+Example configuration structure:
+#+begin_src yaml
+columns:
+  - [tag1, tag2]
+rows:
+  - [[tag3, tag4]]
+templates:
+  pattern:
+    url: "https://example.com/#{path}"
+    short: "#{label}"
+items:
+  - label: "Example"
+    tags: tag1 tag3
+aside:
+  section1:
+    - title: "Link 1"
+      url: "https://example.com"
+#+end_src
+
+** Development 💻
+
+1. Install dependencies, see [[https://github.com/pitch-io/uix][UIx]]
+2. Start shadow-cljs development server with ~npm run dev~
+3. Open your browser at the development URL ~http://localhost:8080/~
+
+#+begin_src shell
+npm i # install NPM deps
+npm run dev # run dev build in watch mode with CLJS REPL
+#+end_src
+
+** Release
+
+#+begin_src shell
+npm run release # build production bundle
+#+end_src
+
+There is also a Dockerfile for easy deployment with nginx.
+
+** License 📄
+
+tbd.
+
+** Contributing 🤝
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+** Acknowledgments 🙏
+
+Built with:
+- ClojureScript
+- UIx
+- shadow-cljs
