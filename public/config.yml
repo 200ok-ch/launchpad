@@ -1,0 +1,39 @@
+---
+# a sample config.yml
+templates:
+  github:
+    url: 'https://github.com/200ok-ch/#{short}'
+  gitlab:
+    url: 'https://gitlab.com/200ok/#{short}'
+
+rows:
+  - [[opensource, babashka]]
+  - [[opensource, clojure]]
+  - [[opensource, clojurescript]]
+  - [[opensource, elisp]]
+  - misc
+  - closedsource
+
+columns:
+  - github
+  - gitlab
+  - hosting
+
+items:
+  - { tags: github closedsource, short: topsecret }
+  - { tags: github opensource clojure, short: fsdb }
+  - { tags: github opensource clojure, short: ukko }
+  - { tags: github opensource babashka, short: shell-smith }
+  - { tags: github opensource clojure clojurescript, short: org-parser }
+  - { tags: github opensource elisp, short: counsel-jq }
+  - { tags: github opensource clojure, short: easy }
+  - tags: hosting opensource misc
+    short: website
+    url: https://200ok.ch
+  - tags: gitlab opensource clojure
+    short: codegraph
+
+aside:
+  saas:
+    - { title: GitLab, url: https://gitlab.com/200ok }
+    - { title: Github, url: https://github.com/200ok-ch }
